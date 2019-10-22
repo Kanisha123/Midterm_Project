@@ -19,11 +19,6 @@
       </ul>
     </nav>
   </div>
-  <div>
-  <%= @page.ancestors.each do |page| %>
-    <%= link_to page.name, page %>
-  <%=end%>
-  </div>
       <%= yield %>
   </body>
 </html>
