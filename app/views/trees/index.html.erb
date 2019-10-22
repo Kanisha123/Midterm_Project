@@ -1,6 +1,18 @@
 <h1>Trees#index</h1>
 <p>Find me in app/views/trees/index.html.erb</p>
+<div class="d-inline-block">
+    <%= paginate @trees, window: 2 %>
+</div>
+<%
 
+=begin%>
+ <%= form_tag(userResults_search_index_path, method: "get", :class => 'd-inline-block') do %>
+    <%= label_tag(:q, "Search for Trees:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+<%
+=end%>
 <table class="table">
     <thead class="thead-dark">
       <tr>

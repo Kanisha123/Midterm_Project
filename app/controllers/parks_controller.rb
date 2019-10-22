@@ -3,8 +3,10 @@
 class ParksController < ApplicationController
   def index
     # @parks = Park.includes(:trees).all
-    @parks = Park.all
+    @parks = Park.order(:name).page params[:page]
   end
 
-  def show; end
+  def show
+    @park = Park.find(params[:id])
+  end
 end

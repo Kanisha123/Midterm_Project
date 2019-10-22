@@ -2,8 +2,10 @@
 
 class TreesController < ApplicationController
   def index
-    @trees = Tree.all
+    @trees = Tree.order(:name).page params[:page]
   end
 
-  def show; end
+  def show
+    @tree = Tree.find(params[:id])
+  end
 end
