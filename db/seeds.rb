@@ -7,8 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Park.destroyAll
+Tree.destroy_all
+Park.destroy_all
 
 parkAPI = 'https://data.winnipeg.ca/resource/tx3d-pfxq.json'
 uriPark = URI(parkAPI)
@@ -18,11 +18,12 @@ parkHash = JSON.parse(response)
 parkHash.each do |i|
   newPark = Park.create(name: i['park_name'],
                         address: i['location_description'],
-                        category: i['park_category']).save
-  200.times do
-    newTree.trees.build(botanical_name: Faker::Name.name,
+                        category: i['park_category'])
+  5.times do
+    newPark.trees.build(botanical_name: Faker::Name.name,
                         common_name: Faker::Name.first_name,
                         lat: Faker::Address.latitude,
-                        long: Faker::Address.longitude)
+                        long: Faker::Address.longitude).save
+  end
 end
 # puts "Created #{Park.count} of park"
