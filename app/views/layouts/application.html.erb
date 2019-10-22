@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="arrange">
+      <ul class="navbar-nav mr-auto">
+        <li class="navbar-brand"><%= link_to 'About Us', about_index_path %></li>
+        <li class="navbar-brand"><%= link_to 'Parks', parks_index_path%></li>
+        <li class="navbar-brand"><%= link_to 'Trees', trees_index_path %></li>
+      </ul>
+    </nav>
+  </div>
+  <div>
+  <%= @page.ancestors.each do |page| %>
+    <%= link_to page.name, page %>
+  <%=end%>
+  </div>
+      <%= yield %>
   </body>
 </html>

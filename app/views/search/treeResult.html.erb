@@ -1,5 +1,4 @@
-<h1>Search#treeResult</h1>
-<p>Find me in app/views/search/treeResult.html.erb</p>
+<h1 id="center">Search for Tress</h1>
 <div class="container">
   <h1> Trees found: <%= @tree_count.size %></h1>
   <% if @trees.empty? %>
@@ -8,7 +7,7 @@
     <div class="d-inline-block">
       <%= paginate @trees, window: 2 %>
     </div>
-    <%= form_tag(treeResult_search_index_path, method: "get", :class => 'd-inline-block') do %>
+    <%= form_tag(treeResult_search_index_path, method: "get", :class => 'd-inline-block', :id => 'right') do %>
       <%= label_tag(:q, "Search for Tree:") %>
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search") %>
