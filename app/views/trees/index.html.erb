@@ -22,7 +22,7 @@
     </thead>
     <% @trees.each do |tree| %>
       <tr>
-        <td><%=tree.botanical_name%></td>
+        <td><%=link_to tree.botanical_name, tree_path(tree)%></td>
         <td><%=tree.common_name%></td>
       </tr>
     <%end%>

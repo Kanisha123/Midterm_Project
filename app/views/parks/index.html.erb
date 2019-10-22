@@ -22,7 +22,7 @@
     </thead>
     <% @parks.each do |park| %>
       <tr>
-        <td><%=park.name%></td>
+        <td><%=link_to park.name, park_path(park)%></td>
         <td><%=park.address%></td>
         <td><%=park.category%></td>
       </tr>

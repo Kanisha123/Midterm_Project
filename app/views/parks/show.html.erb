@@ -1,2 +1,17 @@
 <h1>Parks#show</h1>
 <p>Find me in app/views/parks/show.html.erb</p>
+<p>You have selected ->  <%=@park.name%></p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Botanical Name</th>
+        <th>Common Name</th>
+      </tr>
+    </thead>
+    <% @park.trees.each do |tree| %>
+      <tr>
+        <td><%=tree.botanical_name%></td>
+        <td><%=tree.common_name%></td>
+      </tr>
+    <%end%>
+  </table>

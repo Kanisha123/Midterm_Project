@@ -2,7 +2,7 @@
 
 class TreesController < ApplicationController
   def index
-    @trees = Tree.order(:name).page params[:page]
+    @trees = Tree.order(:botanical_name).page params[:page]
   end
 
   def show
