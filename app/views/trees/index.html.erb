@@ -3,16 +3,13 @@
 <div class="d-inline-block">
     <%= paginate @trees, window: 2 %>
 </div>
-<%
 
-=begin%>
- <%= form_tag(userResults_search_index_path, method: "get", :class => 'd-inline-block') do %>
+<%= form_tag(treeResult_search_index_path, method: "get", :class => 'd-inline-block') do %>
     <%= label_tag(:q, "Search for Trees:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
-  <% end %>
-<%
-=end%>
+<% end %>
+
 <table class="table">
     <thead class="thead-dark">
       <tr>

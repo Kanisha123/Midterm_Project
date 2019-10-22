@@ -1,0 +1,32 @@
+<h1>Search#treeResult</h1>
+<p>Find me in app/views/search/treeResult.html.erb</p>
+<div class="container">
+  <h1> Trees found: <%= @tree_count.size %></h1>
+  <% if @trees.empty? %>
+    <p>Sorry, no trees found.</p>
+  <% else %>
+    <div class="d-inline-block">
+      <%= paginate @trees, window: 2 %>
+    </div>
+    <%= form_tag(treeResult_search_index_path, method: "get", :class => 'd-inline-block') do %>
+      <%= label_tag(:q, "Search for Tree:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Botanical Name</th>
+          <th>Common Name</th>
+        </tr>
+      </thead>
+      <% @trees.each do |tree| %>
+        <tr>
+          <td><%=link_to tree.botanical_name, tree_path(tree)%></td>
+          <td><%=tree.common_name%></td>
+        </tr>
+      <%end%>
+    </table>
+  <% end %>
+</div>
