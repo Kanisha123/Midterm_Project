@@ -8,7 +8,7 @@
       </tr>
     </thead>
       <tr>
-        <td><%=@tree.park.name%></td>
+        <td><%=link_to @tree.park.name, park_path(@tree.park)%></td>
         <td><%=@tree.park.address%></td>
         <td><%=@tree.park.category%></td>
       </tr>
