@@ -1,7 +1,8 @@
 <h1 id="center">Parks</h1>
-<div class="d-inline-block">
-    <%= paginate @parks, window: 2 %>
-  </div>
+
+ <div class="paginate">
+  <%= paginate @parks, window: 2 %>
+ </div>
 
 <%= form_tag(result_search_index_path, method: "get", :class => 'd-inline-block', :id => 'right') do %>
   <%= label_tag(:q, "Search for Parks:") %>
